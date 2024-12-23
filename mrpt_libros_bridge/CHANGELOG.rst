@@ -1,5 +1,5 @@
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Changelog for package mrpt_libros_bridge
+Changelog for package mrpt_libros_bridge_headless
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 2.14.7 (2024-12-09)
@@ -10,7 +10,7 @@ Changelog for package mrpt_libros_bridge
 
 2.14.4 (2024-10-19)
 -------------------
-* package.xml and cmake: Fix generation of rosbag2rawlog for ROS 1 version of package mrpt_apps
+* package.xml and cmake: Fix generation of rosbag2rawlog for ROS 1 version of package mrpt_apps_headless
 * Contributors: Jose Luis Blanco-Claraco
 
 2.14.3 (2024-10-12)

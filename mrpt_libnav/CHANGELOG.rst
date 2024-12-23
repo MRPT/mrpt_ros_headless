@@ -1,5 +1,5 @@
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Changelog for package mrpt_libnav
+Changelog for package mrpt_libnav_headless
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 2.14.7 (2024-12-09)

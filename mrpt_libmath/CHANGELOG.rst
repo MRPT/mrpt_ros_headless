@@ -1,5 +1,5 @@
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Changelog for package mrpt_libmath
+Changelog for package mrpt_libmath_headless
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 2.14.7 (2024-12-09)

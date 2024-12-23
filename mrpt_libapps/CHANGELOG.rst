@@ -1,5 +1,5 @@
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Changelog for package mrpt_libapps
+Changelog for package mrpt_libapps_headless
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 2.14.7 (2024-12-09)

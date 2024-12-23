@@ -1,7 +1,7 @@
 # ROS wrapper CMake project for MRPT applications
 
 cmake_minimum_required(VERSION 3.5)
-project(mrpt_apps)
+project(mrpt_apps_headless)
 
 include(ExternalProject)
 
@@ -25,10 +25,10 @@ message(STATUS "MRPT_VERSION_TO_DOWNLOAD: ${MRPT_VERSION_TO_DOWNLOAD} ${_VERSION
 # For local builds, avoid the waste of time and disk of cloning mrpt within each package,
 # which makes sense only in build farms:
 # --------------------------------------------------------------------------------------------
-if(EXISTS ${CMAKE_BINARY_DIR}/../mrpt_libbase/mrpt-build/src/mrpt/CMakeLists.txt AND NOT "$ENV{HOME}" STREQUAL "/home/buildfarm")
+if(EXISTS ${CMAKE_BINARY_DIR}/../mrpt_libbase_headless/mrpt-build/src/mrpt/CMakeLists.txt AND NOT "$ENV{HOME}" STREQUAL "/home/buildfarm")
   # reuse existing cloned version:
   set(src_cmds
-    SOURCE_DIR ${CMAKE_BINARY_DIR}/../mrpt_libbase/mrpt-build/src/mrpt/
+    SOURCE_DIR ${CMAKE_BINARY_DIR}/../mrpt_libbase_headless/mrpt-build/src/mrpt/
   )
 else()
   # Default: clone from github:
@@ -53,9 +53,12 @@ ExternalProject_Add(
     -DMRPT_INSTALL_EXAMPLES=OFF
     -DMRPT_INSTALL_SHARE_DIRS=OFF
     -DMRPT_BUILD_MANPAGES=OFF
+    -DDISABLE_ASSIMP=ON
+    -DDISABLE_WXWIDGETS=ON
+    -DMRPT_WITH_KINECT=OFF
     -DMRPT_INSTALL_CONFIG_HEADERS=OFF
     -DMRPT_INSTALL_EMBEDDED_nanoflann=OFF
-    -DDISABLE_ROS=OFF # We need ROS in mrpt_apps for ROS1 to build rosbag2rawlog app
+    -DDISABLE_ROS=OFF # We need ROS in mrpt_apps_headless for ROS1 to build rosbag2rawlog app
     # Granular builds for each ROS package:
     -DMRPT_BUILD_APPLICATIONS=ON
     -DMRPT_DISABLE_PYTHON_BINDINGS=ON

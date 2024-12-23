@@ -1,5 +1,5 @@
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Changelog for package mrpt_libposes
+Changelog for package mrpt_libposes_headless
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 2.14.7 (2024-12-09)

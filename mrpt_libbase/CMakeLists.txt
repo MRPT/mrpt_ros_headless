@@ -2,7 +2,7 @@
 #mrpt-io, mrpt-serialization, mrpt-random, mrpt-system, mrpt-rtti, mrpt-containers, mrpt-typemeta, mrpt-core, mrpt-random, mrpt-config, mrpt-expr
 
 cmake_minimum_required(VERSION 3.5)
-project(mrpt_libbase)
+project(mrpt_libbase_headless)
 
 include(ExternalProject)
 
@@ -24,7 +24,7 @@ message(STATUS "MRPT_VERSION_TO_DOWNLOAD: ${MRPT_VERSION_TO_DOWNLOAD} ${_VERSION
 #----
 
 #----
-set(VERSION_CACHE ${CMAKE_BINARY_DIR}/../mrpt_libbase/mrpt-build/MRPT_VERSION_TO_DOWNLOAD.txt)
+set(VERSION_CACHE ${CMAKE_BINARY_DIR}/../mrpt_libbase_headless/mrpt-build/MRPT_VERSION_TO_DOWNLOAD.txt)
 if(EXISTS ${VERSION_CACHE})
   file(READ ${VERSION_CACHE} CURRENT_DOWNLOADED_MRPT_VERSION)
 endif()
@@ -33,10 +33,10 @@ endif()
 # For local builds, avoid the waste of time and disk of cloning mrpt within each package,
 # which makes sense only in build farms:
 # --------------------------------------------------------------------------------------------
-if (EXISTS ${CMAKE_BINARY_DIR}/../mrpt_libbase/mrpt-build/src/mrpt/CMakeLists.txt AND (NOT "$ENV{HOME}" STREQUAL "/home/buildfarm") AND "${CURRENT_DOWNLOADED_MRPT_VERSION}" STREQUAL "${MRPT_VERSION_TO_DOWNLOAD}")
+if (EXISTS ${CMAKE_BINARY_DIR}/../mrpt_libbase_headless/mrpt-build/src/mrpt/CMakeLists.txt AND (NOT "$ENV{HOME}" STREQUAL "/home/buildfarm") AND "${CURRENT_DOWNLOADED_MRPT_VERSION}" STREQUAL "${MRPT_VERSION_TO_DOWNLOAD}")
   # reuse existing cloned version:
   set(src_cmds
-    SOURCE_DIR ${CMAKE_BINARY_DIR}/../mrpt_libbase/mrpt-build/src/mrpt/
+    SOURCE_DIR ${CMAKE_BINARY_DIR}/../mrpt_libbase_headless/mrpt-build/src/mrpt/
   )
 else()
   # Default: clone from github:
@@ -62,6 +62,9 @@ ExternalProject_Add(
     -DMRPT_INSTALL_EXAMPLES=OFF
     -DMRPT_INSTALL_SHARE_DIRS=OFF
     -DMRPT_BUILD_MANPAGES=OFF
+    -DDISABLE_ASSIMP=ON
+    -DDISABLE_WXWIDGETS=ON
+    -DMRPT_WITH_KINECT=OFF
     -DMRPT_INSTALL_CONFIG_HEADERS=ON        # only for the "libbase" package
     -DMRPT_INSTALL_EMBEDDED_nanoflann=ON    # only for the "libbase" package
     # Granular builds for each ROS package:
